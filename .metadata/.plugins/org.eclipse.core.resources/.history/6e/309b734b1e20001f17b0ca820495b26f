@@ -1,0 +1,10 @@
+package com.mygdx.gorobots.elementos;
+
+import com.badlogic.gdx.physics.box2d.World;
+
+public class MundoBox2D {
+	
+	public MundoBox2D(World mundo, Tiledmap mapa) {
+		
+	}
+}

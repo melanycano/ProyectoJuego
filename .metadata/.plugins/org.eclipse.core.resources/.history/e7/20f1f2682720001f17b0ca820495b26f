@@ -1,0 +1,5 @@
+package com.mygdx.gorobots.escenas;
+
+public class Hud {
+
+}

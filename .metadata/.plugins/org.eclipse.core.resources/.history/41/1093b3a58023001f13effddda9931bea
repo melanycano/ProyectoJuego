@@ -1,0 +1,5 @@
+package com.mygdx.gorobots.sprites;
+
+public enum Estados_Robot {
+
+}

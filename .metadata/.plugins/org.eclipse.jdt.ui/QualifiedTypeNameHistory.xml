@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="com.badlogic.gdx.utils.ScreenUtils"/>
+    <fullyQualifiedTypeName name="java.lang.String"/>
+    <fullyQualifiedTypeName name="com.badlogic.gdx.graphics.Color"/>
+    <fullyQualifiedTypeName name="com.badlogic.gdx.InputProcessor"/>
+    <fullyQualifiedTypeName name="com.badlogic.gdx.Input.Keys"/>
+    <fullyQualifiedTypeName name="com.badlogic.gdx.Screen"/>
+    <fullyQualifiedTypeName name="com.badlogic.gdx.utils.viewport.Viewport"/>
+    <fullyQualifiedTypeName name="com.badlogic.gdx.physics.box2d.World"/>
+    <fullyQualifiedTypeName name="com.badlogic.gdx.graphics.OrthographicCamera"/>
+    <fullyQualifiedTypeName name="com.badlogic.gdx.utils.viewport.FitViewport"/>
+    <fullyQualifiedTypeName name="com.badlogic.gdx.maps.tiled.TiledMap"/>
+    <fullyQualifiedTypeName name="com.badlogic.gdx.maps.tiled.TmxMapLoader"/>
+    <fullyQualifiedTypeName name="com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer"/>
+    <fullyQualifiedTypeName name="com.badlogic.gdx.physics.box2d.Box2DDebugRenderer"/>
+    <fullyQualifiedTypeName name="com.badlogic.gdx.physics.box2d.BodyDef"/>
+    <fullyQualifiedTypeName name="com.badlogic.gdx.physics.box2d.PolygonShape"/>
+    <fullyQualifiedTypeName name="com.badlogic.gdx.maps.objects.RectangleMapObject"/>
+    <fullyQualifiedTypeName name="com.badlogic.gdx.physics.box2d.BodyDef.BodyType"/>
+    <fullyQualifiedTypeName name="com.mygdx.gorobots.sprites.Robot"/>
+    <fullyQualifiedTypeName name="com.badlogic.gdx.physics.box2d.Shape"/>
+    <fullyQualifiedTypeName name="com.badlogic.gdx.graphics.glutils.ShapeRenderer"/>
+    <fullyQualifiedTypeName name="com.badlogic.gdx.graphics.g2d.SpriteBatch"/>
+    <fullyQualifiedTypeName name="com.badlogic.gdx.Gdx"/>
+    <fullyQualifiedTypeName name="com.mygdx.gorobots.io.KeyListener"/>
+    <fullyQualifiedTypeName name="com.badlogic.gdx.math.Rectangle"/>
+    <fullyQualifiedTypeName name="com.mygdx.gorobots.sprites.ObjetoInteractivo"/>
+    <fullyQualifiedTypeName name="com.badlogic.gdx.graphics.g2d.TextureAtlas"/>
+    <fullyQualifiedTypeName name="com.mygdx.gorobots.utiles.Render"/>
+    <fullyQualifiedTypeName name="com.mygdx.gorobots.utiles.Recursos"/>
+    <fullyQualifiedTypeName name="com.badlogic.gdx.graphics.g2d.TextureRegion"/>
+    <fullyQualifiedTypeName name="com.mygdx.gorobots.utiles.Config"/>
+    <fullyQualifiedTypeName name="com.mygdx.gorobots.sprites.EstadosRobot"/>
+</qualifiedTypeNameHistroy>

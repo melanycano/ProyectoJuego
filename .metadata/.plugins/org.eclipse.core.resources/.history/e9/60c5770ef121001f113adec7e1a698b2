@@ -1,0 +1,106 @@
+package com.mygdx.gorobots.elementos;
+
+import com.badlogic.gdx.maps.MapObject;
+import com.badlogic.gdx.maps.objects.PolygonMapObject;
+import com.badlogic.gdx.maps.objects.RectangleMapObject;
+import com.badlogic.gdx.maps.tiled.TiledMap;
+import com.badlogic.gdx.math.Rectangle;
+import com.badlogic.gdx.physics.box2d.Body;
+import com.badlogic.gdx.physics.box2d.BodyDef;
+import com.badlogic.gdx.physics.box2d.FixtureDef;
+import com.badlogic.gdx.physics.box2d.PolygonShape;
+import com.badlogic.gdx.physics.box2d.World;
+import com.mygdx.gorobots.sprites.Agua;
+import com.mygdx.gorobots.sprites.Checkpoint;
+import com.mygdx.gorobots.sprites.Cierra;
+import com.mygdx.gorobots.sprites.Trampolin;
+import com.mygdx.gorobots.utiles.Config;
+
+public class MundoBox2D {
+	
+	public MundoBox2D(World mundo, TiledMap mapa) {
+		
+		BodyDef bd = new BodyDef();
+		PolygonShape shape = new PolygonShape();
+		FixtureDef fd = new FixtureDef();
+		Body cuerpo;
+		
+		Trampolin trampolin;
+		Checkpoint checkpoint;
+		Cierra cierra;
+		Agua agua;
+		
+		
+		//OBJETOS DE BOX2D
+		//SUELO----------------------------------------------------------------------
+		
+		for (MapObject object : mapa.getLayers().get(2).getObjects()) {
+		    if (object instanceof RectangleMapObject) {
+		        Rectangle rectangulo = ((RectangleMapObject) object).getRectangle();
+		        bd.type = BodyDef.BodyType.StaticBody;
+		        bd.position.set((rectangulo.getX() + rectangulo.getWidth() / 2) / Config.PPM, (rectangulo.getY() + rectangulo.getHeight() / 2) / Config.PPM);
+		        
+		        cuerpo = mundo.createBody(bd);
+		        
+		        shape.setAsBox(rectangulo.getWidth() / 2 / Config.PPM, rectangulo.getHeight() / 2 / Config.PPM);
+		        fd.shape = shape;
+		        cuerpo.createFixture(fd);
+		    } else if (object instanceof PolygonMapObject) {
+		        PolygonMapObject polygonObject = (PolygonMapObject) object;
+		        bd.type = BodyDef.BodyType.StaticBody;
+		        
+		        PolygonShape polygonShape = new PolygonShape();
+		        float[] vertices = polygonObject.getPolygon().getTransformedVertices();
+		        float[] worldVertices = new float[vertices.length];
+		        for (int i = 0; i < vertices.length; ++i) {
+		            worldVertices[i] = vertices[i] / 1 / Config.PPM; // Ajusta la escala
+		        }
+		        polygonShape.set(worldVertices);
+		        
+		        bd.position.set(polygonObject.getPolygon().getX()/ 800 / Config.PPM, polygonObject.getPolygon().getY()/ 800/ Config.PPM);
+		        cuerpo = mundo.createBody(bd);
+		        
+		        fd.shape = polygonShape;
+		        cuerpo.createFixture(fd);
+		        
+		        
+		    }
+		}
+		
+		
+		//AGUA
+		
+		for (MapObject object: mapa.getLayers().get(5).getObjects().getByType(RectangleMapObject.class)) {
+			Rectangle rectangulo = ((RectangleMapObject) object).getRectangle();
+			
+			agua = new Agua(mundo, mapa, rectangulo);
+			
+		}
+		
+		
+		//CIERRAS
+		
+		for (MapObject object: mapa.getLayers().get(4).getObjects().getByType(RectangleMapObject.class)) {
+			Rectangle rectangulo = ((RectangleMapObject) object).getRectangle();
+			
+			cierra = new Cierra(mundo, mapa, rectangulo);
+			
+		}
+		
+		//CHECKPOINT
+		
+		
+		
+		
+		//TRAMPOLIN
+		
+		for (MapObject object: mapa.getLayers().get(3).getObjects().getByType(RectangleMapObject.class)) {
+			Rectangle rectangulo = ((RectangleMapObject) object).getRectangle();
+			
+			trampolin = new Trampolin(mundo, mapa, rectangulo);
+			
+		}
+		
+		
+	}
+}

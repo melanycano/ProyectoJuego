@@ -1,0 +1,11 @@
+package com.mygdx.gorobots.utiles;
+
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.mygdx.gorobots.GoRobots;
+
+public class Render {
+
+	public static SpriteBatch sb;
+	public static GoRobots app;
+	
+}

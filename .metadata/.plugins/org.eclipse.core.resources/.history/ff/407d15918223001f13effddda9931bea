@@ -1,0 +1,10 @@
+package com.mygdx.gorobots.sprites;
+
+public enum Estados_Robot {
+
+	QUIETO,
+	ANDANDO,
+	SALTANDO,
+	CAYENDO
+	
+}

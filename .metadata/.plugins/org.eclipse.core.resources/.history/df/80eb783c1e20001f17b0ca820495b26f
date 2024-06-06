@@ -1,0 +1,5 @@
+package com.mygdx.gorobots.elementos;
+
+public class MundoBox2D {
+
+}

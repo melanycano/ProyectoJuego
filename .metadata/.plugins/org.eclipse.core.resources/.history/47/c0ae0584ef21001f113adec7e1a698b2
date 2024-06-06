@@ -1,0 +1,11 @@
+package com.mygdx.gorobots.sprites;
+
+import com.badlogic.gdx.physics.box2d.World;
+
+public abstract class ObjetoInteractivo {
+	
+	private World mundo;
+	private TiledMap mapa;
+	
+
+}

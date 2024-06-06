@@ -1,0 +1,103 @@
+
+Robots.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+robot_redJump
+  rotate: false
+  xy: 1, 303
+  size: 196, 162
+  orig: 196, 162
+  offset: 0, 0
+  index: -1
+robot_redDrive1
+  rotate: false
+  xy: 1, 151
+  size: 180, 150
+  orig: 180, 150
+  offset: 0, 0
+  index: -1
+robot_redDrive2
+  rotate: false
+  xy: 199, 319
+  size: 180, 146
+  orig: 180, 146
+  offset: 0, 0
+  index: -1
+robot_greenJump
+  rotate: false
+  xy: 1, 17
+  size: 176, 132
+  orig: 176, 132
+  offset: 0, 0
+  index: -1
+robot_redBody
+  rotate: false
+  xy: 381, 337
+  size: 179, 128
+  orig: 179, 128
+  offset: 0, 0
+  index: -1
+robot_redDamage1
+  rotate: false
+  xy: 562, 337
+  size: 179, 128
+  orig: 179, 128
+  offset: 0, 0
+  index: -1
+robot_redDamage2
+  rotate: false
+  xy: 743, 337
+  size: 179, 128
+  orig: 179, 128
+  offset: 0, 0
+  index: -1
+robot_redHurt
+  rotate: false
+  xy: 381, 207
+  size: 179, 128
+  orig: 179, 128
+  offset: 0, 0
+  index: -1
+robot_greenDrive1
+  rotate: false
+  xy: 562, 215
+  size: 158, 120
+  orig: 158, 120
+  offset: 0, 0
+  index: -1
+robot_greenDrive2
+  rotate: false
+  xy: 722, 219
+  size: 158, 116
+  orig: 158, 116
+  offset: 0, 0
+  index: -1
+robot_greenBody
+  rotate: false
+  xy: 199, 213
+  size: 157, 104
+  orig: 157, 104
+  offset: 0, 0
+  index: -1
+robot_greenDamage1
+  rotate: false
+  xy: 183, 107
+  size: 157, 104
+  orig: 157, 104
+  offset: 0, 0
+  index: -1
+robot_greenDamage2
+  rotate: false
+  xy: 179, 1
+  size: 157, 104
+  orig: 157, 104
+  offset: 0, 0
+  index: -1
+robot_greenHurt
+  rotate: false
+  xy: 342, 101
+  size: 157, 104
+  orig: 157, 104
+  offset: 0, 0
+  index: -1

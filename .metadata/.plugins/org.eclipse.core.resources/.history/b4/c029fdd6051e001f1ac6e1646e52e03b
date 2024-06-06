@@ -1,0 +1,7 @@
+package com.mygdx.gorobots.pantallas;
+
+import com.badlogic.gdx.Screen;
+
+public class PantallaCarga implements Screen{
+
+}
