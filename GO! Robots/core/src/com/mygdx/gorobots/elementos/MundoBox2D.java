@@ -10,25 +10,33 @@ import com.badlogic.gdx.physics.box2d.BodyDef;
 import com.badlogic.gdx.physics.box2d.FixtureDef;
 import com.badlogic.gdx.physics.box2d.PolygonShape;
 import com.badlogic.gdx.physics.box2d.World;
+import com.mygdx.gorobots.pantallas.PantallaNivel;
 import com.mygdx.gorobots.sprites.Agua;
 import com.mygdx.gorobots.sprites.Checkpoint;
-import com.mygdx.gorobots.sprites.Cierra;
+import com.mygdx.gorobots.sprites.Sierra;
 import com.mygdx.gorobots.sprites.Trampolin;
 import com.mygdx.gorobots.utiles.Config;
 
 public class MundoBox2D {
 	
-	public MundoBox2D(World mundo, TiledMap mapa) {
+//	public MundoBox2D(World mundo, TiledMap mapa) {
+	public MundoBox2D(PantallaNivel pantalla) {
 		
+		World mundo = pantalla.getMundo();
+		TiledMap mapa = pantalla.getMapa();
+		
+		//CREACION DE CUERPO Y VARIABLES DE FIXTURES
 		BodyDef bd = new BodyDef();
 		PolygonShape shape = new PolygonShape();
 		FixtureDef fd = new FixtureDef();
 		Body cuerpo;
 		
-		Trampolin trampolin;
-		Checkpoint checkpoint;
-		Cierra cierra;
-		Agua agua;
+//		Trampolin trampolin;
+//		Checkpoint checkpoint;
+//		Sierra sierra;
+//		Agua agua;
+		
+//		Robot robot = null;
 		
 		
 		//OBJETOS DE BOX2D
@@ -71,9 +79,9 @@ public class MundoBox2D {
 		//AGUA
 		
 		for (MapObject object: mapa.getLayers().get(5).getObjects().getByType(RectangleMapObject.class)) {
-			Rectangle rectangulo = ((RectangleMapObject) object).getRectangle();
+		//	Rectangle rectangulo = ((RectangleMapObject) object).getRectangle();
 			
-			agua = new Agua(mundo, mapa, rectangulo);
+			new Agua(pantalla, object);
 			
 		}
 		
@@ -81,18 +89,18 @@ public class MundoBox2D {
 		//CIERRAS
 		
 		for (MapObject object: mapa.getLayers().get(4).getObjects().getByType(RectangleMapObject.class)) {
-			Rectangle rectangulo = ((RectangleMapObject) object).getRectangle();
+		//	Rectangle rectangulo = ((RectangleMapObject) object).getRectangle();
 			
-			cierra = new Cierra(mundo, mapa, rectangulo);
+			new Sierra(pantalla, object);
 			
 		}
 		
 		//CHECKPOINT
 		
 		for (MapObject object: mapa.getLayers().get(6).getObjects().getByType(RectangleMapObject.class)) {
-			Rectangle rectangulo = ((RectangleMapObject) object).getRectangle();
+		//	Rectangle rectangulo = ((RectangleMapObject) object).getRectangle();
 			
-			checkpoint = new Checkpoint(mundo, mapa, rectangulo);
+			new Checkpoint(pantalla, object);
 			
 		}
 		
@@ -100,9 +108,9 @@ public class MundoBox2D {
 		//TRAMPOLIN
 		
 		for (MapObject object: mapa.getLayers().get(3).getObjects().getByType(RectangleMapObject.class)) {
-			Rectangle rectangulo = ((RectangleMapObject) object).getRectangle();
+		//	Rectangle rectangulo = ((RectangleMapObject) object).getRectangle();
 			
-			trampolin = new Trampolin(mundo, mapa, rectangulo);
+			new Trampolin(pantalla, object);
 			
 		}
 		

@@ -1,6 +1,7 @@
 package com.mygdx.gorobots.pantallas;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -14,13 +15,20 @@ import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.mygdx.gorobots.elementos.MundoBox2D;
+import com.mygdx.gorobots.elementos.WorldContactListener;
 import com.mygdx.gorobots.io.KeyListener;
+import com.mygdx.gorobots.sprites.EstadosRobot;
 import com.mygdx.gorobots.sprites.Robot;
 import com.mygdx.gorobots.utiles.Config;
 import com.mygdx.gorobots.utiles.Recursos;
 import com.mygdx.gorobots.utiles.Render;
 
 public class PantallaNivel implements Screen{
+	
+	//HERRAMIENTAS EXTRAS
+//	ShapeRenderer sr;				//DIBUJA FORMAS GEOMETRICAS BASICAS
+	SpriteBatch b;					//DIBUJAR SPRITES
+	private KeyListener teclas;		//CLASE PARA LAS ENTRADA POR TECLADO
 	
 	//REFERENCIAS AL JUEGO, USANDO SPRITES
 	private TextureAtlas atlas;		//COLECCION DE TEXTURAS EMPAQUETADAS EN UNA SOLA IMAGEN
@@ -44,17 +52,11 @@ public class PantallaNivel implements Screen{
 	//DECLARACIÓN DEL JUGADOR
 	private Robot jugador1;
 	
-	//HERRAMIENTAS EXTRAS
-//	ShapeRenderer sr;				//DIBUJA FORMAS GEOMETRICAS BASICAS
-	SpriteBatch b;					//DIBUJAR SPRITES
-	private KeyListener teclas;		//CLASE PARA LAS ENTRADA POR TECLADO
-	
-	
 	
 
 	@Override
 	public void show() {
-		Render.pantallaNivel = this;
+	//	Render.pantallaNivel = this;
 	
 		atlas = new TextureAtlas(Recursos.SPRITES_ROBOTS);
 		
@@ -67,17 +69,34 @@ public class PantallaNivel implements Screen{
 		mapa = cargaMapa.load(Recursos.MAPA_NIVEL);
 		renderizador = new OrthogonalTiledMapRenderer(mapa, 1 / Config.PPM);
 		
+		//CONFIGURACION DEL ZOOM (PINZAAAS)
+//		float zoomFactor = 0.5f;		//pinzas
+//		camara.zoom = zoomFactor;		//pinzas
+			
+		
+		// Calcular la posición para mostrar los 2/3 inferiores del mapa
+//	    float mapHeight = ventanaJuego.getWorldHeight() / 1.2f;
+//	    float targetY = (mapHeight * 2 / 3) / 2; // Centrar en los 2/3 inferiores
+//	    camara.position.set(ventanaJuego.getWorldWidth() / 2, targetY, 0);
+		
 		camara.position.set(ventanaJuego.getWorldWidth() / 2, ventanaJuego.getWorldHeight() / 2, 0);
+		
 		
 		//CONFIGURACION DEL MUNDO BOX2D
 		mundo = new World(new Vector2(0, -10), true); //INVESTIGAR PARA QUE SIRVER EL VECTOR2 (PARA LA GRAVEDAD) A PROFUNDIDAD
 		b2dr = new Box2DDebugRenderer();
 		
 		//CREACION DE LAS FIGURAS DEL MUNDO BOX2D
-		mundoBox2D = new MundoBox2D(mundo, mapa);
+		mundoBox2D = new MundoBox2D(this);
 		
 		//CREACION DEL ROBOT EN EL MUNDO DEL JUEGO
-		jugador1 = new Robot(mundo, Recursos.SPRITE_ROBOT_1);
+	//	jugador1 = new Robot(mundo, Recursos.SPRITE_ROBOT_1);
+		jugador1 = new Robot(this);
+
+		
+		mundo.setContactListener(new WorldContactListener());
+		
+		
 		
 		//INICIALIZO TECLAS Y LO ASIGNO COMO EL OBJETO QUE RECIBIRA TODAS LAS ENTRADAS
 		teclas = new KeyListener(this);
@@ -89,6 +108,22 @@ public class PantallaNivel implements Screen{
 		
 	}
 	
+	public Robot getJugador1() {
+		return jugador1;
+	}
+
+	public TiledMap getMapa() {
+		return mapa;
+	}
+
+	public World getMundo() {
+		return mundo;
+	}
+
+	public MundoBox2D getMundoBox2D() {
+		return mundoBox2D;
+	}
+
 	public TextureAtlas getAtlas() {
 		return atlas;
 	}
@@ -118,27 +153,30 @@ public class PantallaNivel implements Screen{
 		
 		jugador1.update(dt);
 		camara.position.x = jugador1.cuerpo.getPosition().x;
-		
+	
 		camara.update();
 		renderizador.setView(camara);
 		
 	}
 
 	private void manejarEntrada(float dt) {
-		
-		if(teclas.isArriba()) {
-			jugador1.cuerpo.applyLinearImpulse(new Vector2(0, 1f), jugador1.cuerpo.getWorldCenter(), true);
-		}
-		
-		if(teclas.isDerecha()) {
-			jugador1.cuerpo.applyLinearImpulse(new Vector2(0.1f,0), jugador1.cuerpo.getWorldCenter(), true);
-		}
-		
-		if(teclas.isIzquierda() && jugador1.cuerpo.getLinearVelocity().x >= -2) {
-			jugador1.cuerpo.applyLinearImpulse(new Vector2(-0.1f, 0), jugador1.cuerpo.getWorldCenter(), true);
+		 	
+//		if(jugador1.estadoActual != EstadosRobot.MUERTO) {
+		if(!jugador1.isMuerto() && jugador1.estadoActual != EstadosRobot.MUERTO) {
+			if(Gdx.input.isKeyJustPressed(Input.Keys.UP)) {
+	//		if(teclas.isArriba()) {
+				jugador1.cuerpo.applyLinearImpulse(new Vector2(0, 4f), jugador1.cuerpo.getWorldCenter(), true);
+			}
 			
+			if(teclas.isDerecha()) {
+				jugador1.cuerpo.applyLinearImpulse(new Vector2(0.07f,0), jugador1.cuerpo.getWorldCenter(), true);
+			}
+			
+			if(teclas.isIzquierda() && jugador1.cuerpo.getLinearVelocity().x >= -2) {
+				jugador1.cuerpo.applyLinearImpulse(new Vector2(-0.1f, 0), jugador1.cuerpo.getWorldCenter(), true);
+				
+			}
 		}
-		
 	}
 	
 

@@ -1,14 +1,26 @@
 package com.mygdx.gorobots.sprites;
 
-import com.badlogic.gdx.maps.tiled.TiledMap;
-import com.badlogic.gdx.math.Rectangle;
-import com.badlogic.gdx.physics.box2d.World;
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.maps.MapObject;
+import com.mygdx.gorobots.pantallas.PantallaNivel;
+import com.mygdx.gorobots.utiles.Render;
 
 public class Checkpoint extends ObjetoInteractivo{
 
-	public Checkpoint(World mundo, TiledMap mapa, Rectangle limites) {
-		super(mundo, mapa, limites);
+//	public Checkpoint(World mundo, TiledMap mapa, Rectangle limites) {
+	public Checkpoint(PantallaNivel pantalla, MapObject objeto) {
+		super(pantalla, objeto);
+		fixture.setUserData(this);
+		setFiltroDeCategoria(Render.app.CHECKPOINT_BIT);
 	}
-	
+
+	@Override
+	public void colisionRuedas(Robot robot) {
+		Gdx.app.log("Checkpoint", "Colision");
+		setFiltroDeCategoria(Render.app.CHECKPOINT_ACTIVADO_BIT);
+		
+
+	}
+
 
 }

@@ -1,0 +1,29 @@
+package com.mygdx.gorobots.sprites;
+
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.maps.tiled.TiledMap;
+import com.badlogic.gdx.math.Rectangle;
+import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.physics.box2d.World;
+import com.mygdx.gorobots.GoRobots;
+import com.mygdx.gorobots.utiles.Config;
+import com.mygdx.gorobots.utiles.Render;
+
+public class Checkpoint extends ObjetoInteractivo{
+
+	public Checkpoint(World mundo, TiledMap mapa, Rectangle limites) {
+		super(mundo, mapa, limites);
+		fixture.setUserData(this);
+		setFiltroDeCategoria(Render.app.CHECKPOINT_BIT);
+	}
+
+	@Override
+	public void colisionRuedas() {
+		Gdx.app.log("Checkpoint", "Colision");
+		setFiltroDeCategoria(Render.app.CHECKPOINT_ACTIVADO_BIT);
+		fixture.getBody().setTransform(new Vector2(5 / Config.PPM, 100 / Config.PPM), 0);
+
+	}
+
+
+}

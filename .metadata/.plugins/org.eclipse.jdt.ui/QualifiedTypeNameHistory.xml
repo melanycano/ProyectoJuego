@@ -18,18 +18,22 @@
     <fullyQualifiedTypeName name="com.badlogic.gdx.physics.box2d.PolygonShape"/>
     <fullyQualifiedTypeName name="com.badlogic.gdx.maps.objects.RectangleMapObject"/>
     <fullyQualifiedTypeName name="com.badlogic.gdx.physics.box2d.BodyDef.BodyType"/>
-    <fullyQualifiedTypeName name="com.mygdx.gorobots.sprites.Robot"/>
     <fullyQualifiedTypeName name="com.badlogic.gdx.physics.box2d.Shape"/>
     <fullyQualifiedTypeName name="com.badlogic.gdx.graphics.glutils.ShapeRenderer"/>
     <fullyQualifiedTypeName name="com.badlogic.gdx.graphics.g2d.SpriteBatch"/>
-    <fullyQualifiedTypeName name="com.badlogic.gdx.Gdx"/>
     <fullyQualifiedTypeName name="com.mygdx.gorobots.io.KeyListener"/>
     <fullyQualifiedTypeName name="com.badlogic.gdx.math.Rectangle"/>
-    <fullyQualifiedTypeName name="com.mygdx.gorobots.sprites.ObjetoInteractivo"/>
     <fullyQualifiedTypeName name="com.badlogic.gdx.graphics.g2d.TextureAtlas"/>
-    <fullyQualifiedTypeName name="com.mygdx.gorobots.utiles.Render"/>
     <fullyQualifiedTypeName name="com.mygdx.gorobots.utiles.Recursos"/>
     <fullyQualifiedTypeName name="com.badlogic.gdx.graphics.g2d.TextureRegion"/>
     <fullyQualifiedTypeName name="com.mygdx.gorobots.utiles.Config"/>
     <fullyQualifiedTypeName name="com.mygdx.gorobots.sprites.EstadosRobot"/>
+    <fullyQualifiedTypeName name="com.badlogic.gdx.Gdx"/>
+    <fullyQualifiedTypeName name="com.badlogic.gdx.physics.box2d.Fixture"/>
+    <fullyQualifiedTypeName name="com.mygdx.gorobots.sprites.ObjetoInteractivo"/>
+    <fullyQualifiedTypeName name="java.io.File"/>
+    <fullyQualifiedTypeName name="com.badlogic.gdx.physics.box2d.Filter"/>
+    <fullyQualifiedTypeName name="com.mygdx.gorobots.GoRobots"/>
+    <fullyQualifiedTypeName name="com.mygdx.gorobots.utiles.Render"/>
+    <fullyQualifiedTypeName name="com.mygdx.gorobots.sprites.Robot"/>
 </qualifiedTypeNameHistroy>

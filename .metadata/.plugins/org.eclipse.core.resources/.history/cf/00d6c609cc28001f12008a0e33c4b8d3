@@ -1,0 +1,24 @@
+package com.mygdx.gorobots.sprites;
+
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.maps.tiled.TiledMap;
+import com.badlogic.gdx.math.Rectangle;
+import com.badlogic.gdx.physics.box2d.World;
+import com.mygdx.gorobots.GoRobots;
+
+public class Agua extends ObjetoInteractivo {
+
+	public Agua(World mundo, TiledMap mapa, Rectangle limites) {
+		super(mundo, mapa, limites);
+		fixture.setUserData(this);
+		setFiltroDeCategoria(GoRobots.AGUA_BIT);
+	}
+
+	public void colisionRuedas() {
+		Gdx.app.log("Aguas", "Colision");
+		Robot robot = new Robot(null, null);
+		robot.getPosicionInicial();
+	}
+
+	
+}

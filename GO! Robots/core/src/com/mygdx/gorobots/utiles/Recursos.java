@@ -17,7 +17,7 @@ public abstract class Recursos {
 	public static final String SPRITE_ROBOT_1 = "robot_redDrive1";
 //	public static final String SPRITE_CAMINAR_1 = "robot_redDrive2";
 //	public static final String SPRITE_JUMP_1 = "robot_redJump";
-//	public static final String SPRITE_DAMAGE_1 = "robot_redDamage2";
+	public static final String SPRITE_DAMAGE_1 = "robot_redDamage1";
 //	public static final String SPRITE_POWER_1 = "robot_redHurt";
 //	
 //	public static final String SPRITE_AUTO_2 = "robot_greenDrive1";

@@ -5,6 +5,7 @@ public enum EstadosRobot {
 	QUIETO,
 	ANDANDO,
 	SALTANDO,
-	CAYENDO;
+	CAYENDO,
+	MUERTO;
 	
 }

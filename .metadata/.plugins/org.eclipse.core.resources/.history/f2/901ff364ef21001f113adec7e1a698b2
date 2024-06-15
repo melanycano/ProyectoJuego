@@ -1,6 +1,0 @@
-package com.mygdx.gorobots.sprites;
-
-public abstract class ObjetoInteractivo {
-	
-
-}

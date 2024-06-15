@@ -1,8 +1,0 @@
-package com.mygdx.gorobots.elementos;
-
-public class MundoBox2D {
-	
-	public MundoBox2D(World mundo, Tilemap mapa) {
-		
-	}
-}

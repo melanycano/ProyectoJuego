@@ -1,0 +1,28 @@
+package com.mygdx.gorobots.sprites;
+
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.maps.tiled.TiledMap;
+import com.badlogic.gdx.math.Rectangle;
+import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.physics.box2d.World;
+import com.mygdx.gorobots.utiles.Render;
+
+public class Trampolin extends ObjetoInteractivo {
+
+	public Trampolin(World mundo, TiledMap mapa, Rectangle limites) {
+		super(mundo, mapa, limites);
+		fixture.setUserData(this);
+		setFiltroDeCategoria(Render.app.TRAMPOLIN_BIT);
+	}
+
+	@Override
+	public void colisionRuedas() {
+		Gdx.app.log("Trampolin", "Colision");
+		Render.robot.cuerpo.applyLinearImpulse(new Vector2(0, 7f), Render.robot.cuerpo.getWorldCenter(), true);
+
+	}
+
+
+	
+
+}

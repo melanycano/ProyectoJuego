@@ -1,7 +1,0 @@
-package com.mygdx.gorobots.io;
-
-import com.badlogic.gdx.InputProcessor;
-
-public class KeyListener implements InputProcessor{
-
-}

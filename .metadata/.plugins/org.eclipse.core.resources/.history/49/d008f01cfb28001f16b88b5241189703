@@ -1,0 +1,29 @@
+package com.mygdx.gorobots.sprites;
+
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.maps.tiled.TiledMap;
+import com.badlogic.gdx.math.Rectangle;
+import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.physics.box2d.World;
+import com.mygdx.gorobots.GoRobots;
+import com.mygdx.gorobots.utiles.Config;
+import com.mygdx.gorobots.utiles.Render;
+
+public  class Sierra extends ObjetoInteractivo {
+
+	public Sierra(World mundo, TiledMap mapa, Rectangle limites) {
+		super(mundo, mapa, limites);
+		fixture.setUserData(this);
+		setFiltroDeCategoria(Render.app.SIERRA_BIT);
+	}
+
+	@Override
+	public void colisionRuedas(Robot robot) {
+		Gdx.app.log("Cierra", "Colision");
+		robot.getPosicionInicial();
+		
+		
+
+	}
+
+}
